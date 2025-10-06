@@ -1,5 +1,15 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
+<!DOCTYPE html>\
+<script>
+  // لو المستخدم مش عامل login، نرُدّه للـ index.html
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "index.html";
+  }
+</script>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -356,7 +366,6 @@
   </script>
 </body>
 </html>
-=======
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -433,10 +442,10 @@
   >
     <!-- Navbar -->
     <header
-      class="bg-white/10 backdrop-blur-md shadow-md fixed w-full top-0 z-50"
+      class="fixed top-0 z-50 w-full shadow-md bg-white/10 backdrop-blur-md"
     >
       <div
-        class="container mx-auto px-4 flex justify-between items-center h-16"
+        class="container flex items-center justify-between h-16 px-4 mx-auto"
       >
         <!-- Logo -->
         <a href="main page.html" class="flex items-center space-x-2">
@@ -445,7 +454,7 @@
 
         <!-- Desktop Menu -->
         <nav
-          class="hidden md:flex space-x-8 font-medium text-white"
+          class="hidden space-x-8 font-medium text-white md:flex"
           id="nav-links"
         >
           <a href="#home" class="nav-link">Home</a>
@@ -457,7 +466,7 @@
 <!-- Mobile Menu Button -->
 <button
   id="menu-btn"
-  class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg border border-white/20 bg-white/5 backdrop-blur-md space-y-1 transition-all duration-300"
+  class="flex flex-col items-center justify-center w-10 h-10 space-y-1 transition-all duration-300 border rounded-lg md:hidden border-white/20 bg-white/5 backdrop-blur-md"
 >
   <span class="w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
   <span class="w-6 h-0.5 bg-white rounded transition-all duration-300"></span>
@@ -467,14 +476,14 @@
 <!-- Mobile Menu -->
 <div
   id="mobile-menu"
-  class="hidden md:hidden opacity-0 -translate-y-5 transition-all duration-500 ease-out bg-gray-900/95 backdrop-blur-lg shadow-lg border-t border-gray-700"
+  class="hidden transition-all duration-500 ease-out -translate-y-5 border-t border-gray-700 shadow-lg opacity-0 md:hidden bg-gray-900/95 backdrop-blur-lg"
 >
-  <nav class="flex flex-col p-6 space-y-5 font-medium text-white text-lg">
-    <a href="#home" class="hover:text-yellow-300 transition-colors duration-300">Home</a>
-    <a href="#sol" class="hover:text-yellow-300 transition-colors duration-300">Solutions</a>
-    <a href="#ser" class="hover:text-yellow-300 transition-colors duration-300">Services</a>
-    <a href="#about" class="hover:text-yellow-300 transition-colors duration-300">About Us</a>
-    <a href="#contact" class="hover:text-yellow-300 transition-colors duration-300">Contact Us</a>
+  <nav class="flex flex-col p-6 space-y-5 text-lg font-medium text-white">
+    <a href="#home" class="transition-colors duration-300 hover:text-yellow-300">Home</a>
+    <a href="#sol" class="transition-colors duration-300 hover:text-yellow-300">Solutions</a>
+    <a href="#ser" class="transition-colors duration-300 hover:text-yellow-300">Services</a>
+    <a href="#about" class="transition-colors duration-300 hover:text-yellow-300">About Us</a>
+    <a href="#contact" class="transition-colors duration-300 hover:text-yellow-300">Contact Us</a>
   </nav>
 </div>
 
@@ -515,21 +524,21 @@
     <!-- Hero Section -->
     <main
       id="home"
-      class="flex items-center justify-center min-h-screen text-center px-3"
+      class="flex items-center justify-center min-h-screen px-3 text-center"
     >
       <div>
         <h1
-          class="gradient-text text-5xl md:text-7xl font-extrabold tracking-wide drop-shadow-lg fade-slide"
+          class="text-5xl font-extrabold tracking-wide gradient-text md:text-7xl drop-shadow-lg fade-slide"
         >
           DIGITALIZED
         </h1>
         <h1
-          class="gradient-text text-5xl md:text-7xl font-extrabold tracking-wide drop-shadow-lg fade-slide"
+          class="text-5xl font-extrabold tracking-wide gradient-text md:text-7xl drop-shadow-lg fade-slide"
         >
           SOLUTIONS
         </h1>
         <h3
-          class="mt-4 text-xl md:text-3xl font-light text-gray-300 fade-slide"
+          class="mt-4 text-xl font-light text-gray-300 md:text-3xl fade-slide"
         >
           Ahead of the Competition
         </h3>
@@ -539,33 +548,33 @@
     <!-- Section: Solutions -->
     <section
       id="sol"
-      class="relative flex flex-col items-center justify-center min-h-screen text-center px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      class="relative flex flex-col items-center justify-center min-h-screen px-6 text-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
-      <div class="max-w-6xl w-full">
+      <div class="w-full max-w-6xl">
         <!-- Title -->
         <h1
-          class="gradient-text text-4xl md:text-6xl font-extrabold fade-slide"
+          class="text-4xl font-extrabold gradient-text md:text-6xl fade-slide"
         >
           OUR SOLUTIONS
         </h1>
         <!-- Subtitle -->
-        <p class="mt-4 text-lg md:text-2xl font-light text-gray-400 fade-slide">
+        <p class="mt-4 text-lg font-light text-gray-400 md:text-2xl fade-slide">
           Innovative, scalable, and future-ready digital solutions
         </p>
 
         <!-- Solutions Grid -->
-        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 mt-16">
+        <div class="grid gap-10 mt-16 md:grid-cols-2 lg:grid-cols-3">
           <!-- Box 1 -->
           <div
-            class="group relative p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl hover:scale-105 transform transition duration-500 fade-slide"
+            class="relative p-8 transition duration-500 transform border shadow-xl group bg-white/5 backdrop-blur-md rounded-2xl border-white/10 hover:shadow-2xl hover:scale-105 fade-slide"
           >
             <div
-              class="absolute inset-0 bg-gradient-to-tr from-yellow-400/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500"
+              class="absolute inset-0 transition duration-500 opacity-0 bg-gradient-to-tr from-yellow-400/20 to-transparent rounded-2xl group-hover:opacity-100"
             ></div>
-            <h3 class="text-2xl font-semibold mb-3 text-white relative z-10">
+            <h3 class="relative z-10 mb-3 text-2xl font-semibold text-white">
               LED & LCD Displays
             </h3>
-            <p class="text-gray-300 relative z-10">
+            <p class="relative z-10 text-gray-300">
               Premium-quality displays that deliver sharp visuals, indoor or
               outdoor, tailored for your brand.
             </p>
@@ -573,15 +582,15 @@
 
           <!-- Box 2 -->
           <div
-            class="group relative p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl hover:scale-105 transform transition duration-500 fade-slide"
+            class="relative p-8 transition duration-500 transform border shadow-xl group bg-white/5 backdrop-blur-md rounded-2xl border-white/10 hover:shadow-2xl hover:scale-105 fade-slide"
           >
             <div
-              class="absolute inset-0 bg-gradient-to-tr from-cyan-400/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500"
+              class="absolute inset-0 transition duration-500 opacity-0 bg-gradient-to-tr from-cyan-400/20 to-transparent rounded-2xl group-hover:opacity-100"
             ></div>
-            <h3 class="text-2xl font-semibold mb-3 text-white relative z-10">
+            <h3 class="relative z-10 mb-3 text-2xl font-semibold text-white">
               Content Management
             </h3>
-            <p class="text-gray-300 relative z-10">
+            <p class="relative z-10 text-gray-300">
               Smart CMS platforms that let you control, schedule, and update
               your content seamlessly.
             </p>
@@ -589,15 +598,15 @@
 
           <!-- Box 3 -->
           <div
-            class="group relative p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl hover:scale-105 transform transition duration-500 fade-slide"
+            class="relative p-8 transition duration-500 transform border shadow-xl group bg-white/5 backdrop-blur-md rounded-2xl border-white/10 hover:shadow-2xl hover:scale-105 fade-slide"
           >
             <div
-              class="absolute inset-0 bg-gradient-to-tr from-purple-400/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500"
+              class="absolute inset-0 transition duration-500 opacity-0 bg-gradient-to-tr from-purple-400/20 to-transparent rounded-2xl group-hover:opacity-100"
             ></div>
-            <h3 class="text-2xl font-semibold mb-3 text-white relative z-10">
+            <h3 class="relative z-10 mb-3 text-2xl font-semibold text-white">
               Support & Maintenance
             </h3>
-            <p class="text-gray-300 relative z-10">
+            <p class="relative z-10 text-gray-300">
               Comprehensive technical support and proactive maintenance for
               worry-free operations.
             </p>
@@ -646,27 +655,27 @@
     <!-- Section 2 -->
     <section
       id="ser"
-      class="flex items-center justify-center min-h-screen text-center px-3 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      class="flex items-center justify-center min-h-screen px-3 text-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
-      <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-6xl px-6 mx-auto">
         <!-- Section Title -->
-        <div class="text-center mb-16 fade-slide">
+        <div class="mb-16 text-center fade-slide">
           <h2
-            class="gradient-text text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400"
+            class="mb-4 text-4xl font-extrabold text-transparent gradient-text md:text-5xl bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400"
           >
             Our Services
           </h2>
-          <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p class="max-w-2xl mx-auto text-lg text-gray-300">
             We provide innovative display and signage solutions tailored for
             your business needs.
           </p>
         </div>
 
         <!-- Services Grid -->
-        <div class="gara grid md:grid-cols-3 gap-10">
+        <div class="grid gap-10 gara md:grid-cols-3">
           <!-- Service 1 -->
           <div
-            class="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transform transition duration-500 hover:shadow-blue-500/30 fade-slide"
+            class="p-6 transition duration-500 transform bg-gray-800 shadow-lg rounded-2xl hover:scale-105 hover:shadow-blue-500/30 fade-slide"
           >
             <div
               class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-blue-500 to-teal-400"
@@ -681,7 +690,7 @@
                 <path d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Digital Signage</h3>
+            <h3 class="mb-3 text-xl font-semibold">Digital Signage</h3>
             <p class="text-gray-400">
               High-quality LED and LCD displays to showcase your brand
               effectively.
@@ -690,7 +699,7 @@
 
           <!-- Service 2 -->
           <div
-            class="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transform transition duration-500 hover:shadow-blue-500/30 fade-slide"
+            class="p-6 transition duration-500 transform bg-gray-800 shadow-lg rounded-2xl hover:scale-105 hover:shadow-blue-500/30 fade-slide"
           >
             <div
               class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-blue-500 to-teal-400"
@@ -705,7 +714,7 @@
                 <path d="M12 8v4l3 3" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Content Management</h3>
+            <h3 class="mb-3 text-xl font-semibold">Content Management</h3>
             <p class="text-gray-400">
               Easily manage and schedule your content with our smart solutions.
             </p>
@@ -713,7 +722,7 @@
 
           <!-- Service 3 -->
           <div
-            class="p-6 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 transform transition duration-500 hover:shadow-blue-500/30 fade-slide"
+            class="p-6 transition duration-500 transform bg-gray-800 shadow-lg rounded-2xl hover:scale-105 hover:shadow-blue-500/30 fade-slide"
           >
             <div
               class="flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-r from-blue-500 to-teal-400"
@@ -728,7 +737,7 @@
                 <path d="M12 4v16m8-8H4" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Installation & Support</h3>
+            <h3 class="mb-3 text-xl font-semibold">Installation & Support</h3>
             <p class="text-gray-400">
               Professional installation with ongoing maintenance and support.
             </p>
@@ -740,26 +749,26 @@
     <!-- Section 3 - About Us -->
     <section
       id="about"
-      class="flex items-center justify-center min-h-screen text-center px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      class="flex items-center justify-center min-h-screen px-6 text-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
       <div class="max-w-4xl">
         <!-- Title -->
         <h1
-          class="gradient-text text-4xl md:text-6xl font-extrabold fade-slide"
+          class="text-4xl font-extrabold gradient-text md:text-6xl fade-slide"
         >
           ABOUT US
         </h1>
 
         <!-- Subtitle -->
         <h2
-          class="gradient-text text-2xl md:text-4xl font-extrabold fade-slide mt-6"
+          class="mt-6 text-2xl font-extrabold gradient-text md:text-4xl fade-slide"
         >
           Synchronized Business Solutions (SBS)
         </h2>
 
         <!-- Paragraph -->
         <p
-          class="mt-6 text-base md:text-lg font-light text-gray-300 leading-relaxed fade-slide"
+          class="mt-6 text-base font-light leading-relaxed text-gray-300 md:text-lg fade-slide"
         >
           SBS was founded in the Middle East over 13 years ago and grew into one
           of the leading digital solution providers within the region, alongside
@@ -781,7 +790,7 @@
 
         <!-- Mission / Vision -->
         <h3
-          class="mt-16 text-xl md:text-3xl font-light text-gray-300 fade-slide"
+          class="mt-16 text-xl font-light text-gray-300 md:text-3xl fade-slide"
         >
           Learn more about our mission and vision
         </h3>
@@ -792,10 +801,10 @@
     <!-- Contact Us Section -->
     <section
       id="contact"
-      class="relative py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
+      class="relative py-20 text-white bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
       <div
-        class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"
+        class="grid max-w-5xl grid-cols-1 gap-12 px-6 mx-auto md:grid-cols-2"
       >
         <!-- Left: Contact Info -->
         <div class="space-y-6 fade-slide">
@@ -831,7 +840,7 @@
               >
                 <path d="M3 5v14l6-3 6 3 6-14H3z" />
               </svg>
-              <a href="tel:+20238243114" class="hover:text-blue-400 transition"
+              <a href="tel:+20238243114" class="transition hover:text-blue-400"
                 >+20 238243114</a
               >
             </li>
@@ -849,7 +858,7 @@
               </svg>
               <a
                 href="mailto:info@sbsmena.com"
-                class="hover:text-blue-400 transition"
+                class="transition hover:text-blue-400"
                 >info@sbsmena.com</a
               >
             </li>
@@ -863,23 +872,23 @@
               type="text"
               placeholder="Full Name"
               required
-              class="w-full px-4 py-3 rounded-lg bg-gray-800/60 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-3 placeholder-gray-400 rounded-lg bg-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="email"
               placeholder="Email Address"
               required
-              class="w-full px-4 py-3 rounded-lg bg-gray-800/60 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-3 placeholder-gray-400 rounded-lg bg-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <textarea
               rows="5"
               placeholder="Your Message"
               required
-              class="w-full px-4 py-3 rounded-lg bg-gray-800/60 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-3 placeholder-gray-400 rounded-lg bg-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
             <button
               type="submit"
-              class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition"
+              class="inline-block px-6 py-3 font-semibold transition bg-blue-600 rounded-lg hover:bg-blue-700"
             >
               Send Message
             </button>
@@ -920,35 +929,35 @@
       </a>
     </div>
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+    <footer class="pt-16 pb-8 text-gray-300 bg-gray-900">
+      <div class="grid gap-10 px-6 mx-auto max-w-7xl md:grid-cols-4">
         <!-- Logo & About -->
         <div>
-          <h2 class="text-2xl font-bold text-white mb-4">SBS MENA</h2>
-          <p class="text-gray-400 text-sm">
+          <h2 class="mb-4 text-2xl font-bold text-white">SBS MENA</h2>
+          <p class="text-sm text-gray-400">
             Smart Business Solutions for Digital Signage & Display Systems.
           </p>
         </div>
 
         <!-- Quick Links -->
         <div>
-          <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+          <h3 class="mb-4 text-lg font-semibold text-white">Quick Links</h3>
           <ul class="space-y-2">
             <li>
-              <a href="#home" class="hover:text-blue-400 transition">Home</a>
+              <a href="#home" class="transition hover:text-blue-400">Home</a>
             </li>
             <li>
-              <a href="#services" class="hover:text-blue-400 transition"
+              <a href="#services" class="transition hover:text-blue-400"
                 >Services</a
               >
             </li>
             <li>
-              <a href="#about" class="hover:text-blue-400 transition"
+              <a href="#about" class="transition hover:text-blue-400"
                 >About Us</a
               >
             </li>
             <li>
-              <a href="#contact" class="hover:text-blue-400 transition"
+              <a href="#contact" class="transition hover:text-blue-400"
                 >Contact</a
               >
             </li>
@@ -957,7 +966,7 @@
 
         <!-- Contact Info -->
         <div>
-          <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
+          <h3 class="mb-4 text-lg font-semibold text-white">Contact</h3>
           <ul class="space-y-3 text-sm">
             <li class="flex items-start gap-3">
               <svg
@@ -1015,11 +1024,11 @@
 
         <!-- Social Media -->
         <div>
-          <h3 class="text-lg font-semibold text-white mb-4">Follow Us</h3>
+          <h3 class="mb-4 text-lg font-semibold text-white">Follow Us</h3>
           <div class="flex space-x-4">
             <a
               href="#"
-              class="p-2 bg-gray-800 rounded-full hover:bg-blue-500 transition"
+              class="p-2 transition bg-gray-800 rounded-full hover:bg-blue-500"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -1032,7 +1041,7 @@
             </a>
             <a
               href="#"
-              class="p-2 bg-gray-800 rounded-full hover:bg-blue-500 transition"
+              class="p-2 transition bg-gray-800 rounded-full hover:bg-blue-500"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -1053,7 +1062,7 @@
             </a>
             <!-- <a
               href="#"
-              class="p-2 bg-gray-800 rounded-full hover:bg-blue-500 transition"
+              class="p-2 transition bg-gray-800 rounded-full hover:bg-blue-500"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -1072,7 +1081,7 @@
       </div>
 
       <!-- Bottom -->
-      <div class="mt-10 text-center text-gray-500 text-sm">
+      <div class="mt-10 text-sm text-center text-gray-500">
         © 2025 SBS MENA. All Rights Reserved.
       </div>
     </footer>
@@ -1147,4 +1156,3 @@ document.querySelectorAll("a.nav-link").forEach((link) => {
     </script>
   </body>
 </html>
->>>>>>> e14fd442fff9a548894defe2efe554f9e6d6addc
