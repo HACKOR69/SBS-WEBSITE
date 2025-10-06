@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBS | Login</title>
+  <link href="src/output.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #111827, #1f2937, #111827);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(270deg, #3b82f6, #06b6d4, #9333ea, #f43f5e);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientMove 8s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.5rem;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+      width: 90%;
+      max-width: 420px;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    }
+
+    .login-btn {
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      background: linear-gradient(270deg, #3b82f6, #06b6d4, #9333ea, #f43f5e);
+      background-size: 400% 400%;
+      animation: gradientMove 6s ease infinite;
+      transition: transform 0.3s ease;
+      border: none;
+      color: white;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .login-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      animation: spin 1s linear infinite;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    @keyframes spin {
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .message.show {
+      opacity: 1;
+    }
+
+    .success {
+      color: #22c55e;
+    }
+
+    .error {
+      color: #f87171;
+    }
+
+    .logo {
+      width: 80px;
+      margin: 0 auto 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <img src="imgs/sbs logo.png" alt="SBS Logo" class="logo" />
+    <h1 class="mb-2 text-3xl font-bold gradient-text">Welcome Back</h1>
+    <p class="mb-6 text-gray-400">Login to continue</p>
+
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit" class="login-btn">
+        <span class="btn-text">Login</span>
+        <div class="spinner"></div>
+      </button>
+    </form>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // ✅ لو المستخدم داخل بالفعل، نحوله على طول للصفحة الرئيسية
+    if (localStorage.getItem("loggedIn") === "true") {
+      window.location.href = "main page.html";
+    }
+
+    const form = document.getElementById('loginForm');
+    const spinner = document.querySelector('.spinner');
+    const btnText = document.querySelector('.btn-text');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      spinner.style.display = 'block';
+      btnText.style.visibility = 'hidden';
+      message.classList.remove('show', 'success', 'error');
+
+      setTimeout(() => {
+        spinner.style.display = 'none';
+        btnText.style.visibility = 'visible';
+
+        if (email === 'admin@sbs.com' && password === '123456') {
+          message.textContent = '✅ Login Successful!';
+          message.classList.add('show', 'success');
+
+          // نحفظ حالة الدخول
+          localStorage.setItem("loggedIn", "true");
+
+          setTimeout(() => {
+            window.location.href = 'main page.html';
+          }, 2000);
+        } else {
+          message.textContent = '❌ Invalid email or password';
+          message.classList.add('show', 'error');
+        }
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
